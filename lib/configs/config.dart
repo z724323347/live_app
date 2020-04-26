@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:liveapp/configs/public.dart';
+import 'package:liveapp/pages/home/home.dart';
+import 'package:liveapp/pages/nearby/nearby.dart';
+import 'package:liveapp/pages/order/order_center.dart';
+import 'package:liveapp/pages/user/user_center.dart';
 
 class ConstConfig {
   /// 首页 顶部appBar配置
@@ -40,20 +44,12 @@ class ConstConfig {
         filePath: 'assets/images/nav_mine.png'),
   ];
 
-  /// mian 页面列表 fn 打开关闭侧拉菜单
+  /// mian 页面列表  (首页、附近、订单、用户中心)
   List<Widget> mianPageList = [
-    Container(
-      child: Text('1'),
-    ),
-    Container(
-      child: Text('2'),
-    ),
-    Container(
-      child: Text('3'),
-    ),
-    Container(
-      child: Text('4'),
-    ),
+    HomePage(),
+    Nearby(),
+    OrderCenter(),
+    UserCenter(),
   ];
 }
 

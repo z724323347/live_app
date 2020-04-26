@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liveapp/pages/index.dart';
+import 'package:liveapp/pages/login/login.dart';
+import 'package:liveapp/pages/login/register.dart';
 import 'package:liveapp/pages/splash.dart';
-import 'package:liveapp/pages/user/login.dart';
 
 class Routes {
   static Map<String, WidgetBuilder> routes = {
@@ -14,6 +15,8 @@ class Routes {
     '/index': (_) => Index(),
     // Login 页面
     '/login': (_) => Login(),
+    // register
+    '/register': (_) => Register(),
   };
 
   /// 路由采集悬浮窗路由表
