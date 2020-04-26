@@ -1,1 +1,5 @@
-{"app_name":"直播"}
+{
+    "app_name": "直播",
+    "cancel": "取消",
+    "confirm": "确定"
+}

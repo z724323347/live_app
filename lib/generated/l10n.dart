@@ -35,6 +35,24 @@ class S {
       args: [],
     );
   }
+
+  String get cancel {
+    return Intl.message(
+      '取消',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get confirm {
+    return Intl.message(
+      '确定',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

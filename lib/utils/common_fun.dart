@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:liveapp/configs/public.dart';
+import 'package:liveapp/widgets/data/exit_dialog.dart';
 
 class CommonFun {
   static BuildContext context =
@@ -45,15 +46,15 @@ class CommonFun {
   // }
 
   /// 确认/取消  等自定义事件交互弹窗
-  // Future popConfirm(String text, Function fn, [List<String> bets]) async {
-  //   showDialog(
-  //       context: context,
-  //       builder: (BuildContext context) {
-  //         return ExitDialig(
-  //           text: text,
-  //           fn: fn,
-  //           bets: bets,
-  //         );
-  //       });
-  // }
+  Future popConfirm(String text, Function fn, [List<String> bets]) async {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return ExitDialig(
+            text: text,
+            fn: fn,
+            bets: bets,
+          );
+        });
+  }
 }

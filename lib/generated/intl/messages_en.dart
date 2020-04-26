@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "app_name" : MessageLookupByLibrary.simpleMessage("Live")
+    "app_name" : MessageLookupByLibrary.simpleMessage("Live"),
+    "cancel" : MessageLookupByLibrary.simpleMessage("cancel"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("confirm")
   };
 }
