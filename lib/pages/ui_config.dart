@@ -3,19 +3,19 @@ class UiConfig {
   List userCenterTag = [
     {
       'text': '消息',
-      'icon': 'iaon_path',
+      'icon': 'assets/images/nav_order_s.png',
     },
     {
       'text': '钱包',
-      'icon': 'iaon_path',
+      'icon': 'assets/images/nav_order_s.png',
     },
     {
       'text': '明细',
-      'icon': 'iaon_path',
+      'icon': 'assets/images/nav_order_s.png',
     },
     {
       'text': '商城',
-      'icon': 'iaon_path',
+      'icon': 'assets/images/nav_order_s.png',
     }
   ];
   // 用户中心标签

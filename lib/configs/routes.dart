@@ -3,11 +3,12 @@ import 'package:liveapp/pages/index.dart';
 import 'package:liveapp/pages/login/login.dart';
 import 'package:liveapp/pages/login/register.dart';
 import 'package:liveapp/pages/splash.dart';
+import 'package:liveapp/test.dart';
 
 class Routes {
   static Map<String, WidgetBuilder> routes = {
     // test page 测试页面入口
-    // '/testPage': (_) => TestPage(),
+    '/testPage': (_) => TestPage(),
 
     // 启动页
     '/splash': (_) => Splash(),
@@ -17,6 +18,7 @@ class Routes {
     '/login': (_) => Login(),
     // register
     '/register': (_) => Register(),
+    
   };
 
   /// 路由采集悬浮窗路由表

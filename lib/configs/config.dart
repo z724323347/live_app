@@ -21,27 +21,27 @@ class ConstConfig {
     HomeNavBar(
         name: '首页',
         icon: 'assets/images/nav_home.png',
-        curIcon: 'assets/images/nav_home_cur.png',
+        curIcon: 'assets/images/nav_home_s.png',
         idx: 0,
-        filePath: 'assets/images/nav_home.png'),
+        filePath: ''),
     HomeNavBar(
-        name: '第二页',
-        icon: 'assets/images/nav_activity.png',
-        curIcon: 'assets/images/nav_activity_cur.png',
+        name: '附近',
+        icon: 'assets/images/nav_nearby.png',
+        curIcon: 'assets/images/nav_nearby_s.png',
         idx: 1,
-        filePath: 'assets/images/nav_activity.png'),
+        filePath: ''),
     HomeNavBar(
-        name: '第三页',
-        icon: 'assets/images/nav_collection.png',
-        curIcon: 'assets/images/nav_collection_cur.png',
+        name: '订单',
+        icon: 'assets/images/nav_order.png',
+        curIcon: 'assets/images/nav_order_s.png',
         idx: 2,
-        filePath: 'assets/images/nav_collection.png'),
+        filePath: ''),
     HomeNavBar(
-        name: '第四页',
+        name: '我的',
         icon: 'assets/images/nav_mine.png',
-        curIcon: 'assets/images/nav_mine_cur.png',
+        curIcon: 'assets/images/nav_mine_s.png',
         idx: 3,
-        filePath: 'assets/images/nav_mine.png'),
+        filePath: ''),
   ];
 
   /// mian 页面列表  (首页、附近、订单、用户中心)

@@ -1,0 +1,65 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_forbidshot (0.0.1):
+    - Flutter
+  - flutter_tencentplayer (0.0.2):
+    - Flutter
+    - TXLiteAVSDK_Player (= 7.2.8927)
+  - flutter_user_agent (1.2.1):
+    - Flutter
+  - screen (0.0.1):
+    - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
+  - shared_preferences_macos (0.0.1):
+    - Flutter
+  - shared_preferences_web (0.0.1):
+    - Flutter
+  - TXLiteAVSDK_Player (7.2.8927)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_forbidshot (from `.symlinks/plugins/flutter_forbidshot/ios`)
+  - flutter_tencentplayer (from `.symlinks/plugins/flutter_tencentplayer/ios`)
+  - flutter_user_agent (from `.symlinks/plugins/flutter_user_agent/ios`)
+  - screen (from `.symlinks/plugins/screen/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
+  - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TXLiteAVSDK_Player
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_forbidshot:
+    :path: ".symlinks/plugins/flutter_forbidshot/ios"
+  flutter_tencentplayer:
+    :path: ".symlinks/plugins/flutter_tencentplayer/ios"
+  flutter_user_agent:
+    :path: ".symlinks/plugins/flutter_user_agent/ios"
+  screen:
+    :path: ".symlinks/plugins/screen/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  shared_preferences_macos:
+    :path: ".symlinks/plugins/shared_preferences_macos/ios"
+  shared_preferences_web:
+    :path: ".symlinks/plugins/shared_preferences_web/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_forbidshot: feac5273065c5b7b6b57a9c6ec4936e3be473523
+  flutter_tencentplayer: e38a753197c226b8d4c11a746959ce1256c8591a
+  flutter_user_agent: 73414e04725e8332d4a61d4b1d4153971d7a2349
+  screen: abd91ca7bf3426e1cc3646d27e9b2358d6bf07b0
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
+  shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
+  TXLiteAVSDK_Player: d3025ba5cfe50e0debbffd94b15b018cf34fe201
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.7.5
