@@ -77,58 +77,62 @@ class _IndexState extends State<Index> {
                   pageIndex = bar.idx;
                 });
               },
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                        flex: 1,
-                        child: Container(
-                            width: MediaQuery.of(context).size.width / 4,
-                            alignment: Alignment.topCenter,
-                            color: Colors.white,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Container(
-                                  width: MediaQuery.of(context).size.width / 4,
-                                  height: ScreenUtil().setWidth(38),
-                                  alignment: Alignment.center,
-                                  child: Image.asset(
-                                    pageIndex == bar.idx
-                                        ? bar.curIcon
-                                        : bar.icon,
-                                    color: pageIndex == bar.idx
-                                        ? ThemeUtil.themeData.primaryColor
-                                        : Colors.black38,
-                                    width: pageIndex == bar.idx
-                                        ? ScreenUtil().setWidth(38)
-                                        : ScreenUtil().setWidth(36),
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ),
-                                Container(
-                                  color: Colors.transparent,
-                                  width: MediaQuery.of(context).size.width / 4,
-                                  margin: EdgeInsets.only(
-                                      top: ScreenUtil().setWidth(4),
-                                      bottom: ScreenUtil().setWidth(12)),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    bar.name,
-                                    style: TextStyle(
-                                        color: pageIndex == bar.idx
-                                            ? ThemeUtil.themeData.primaryColor
-                                            : Colors.black38,
-                                        fontSize: ScreenUtil().setSp(24)),
-                                  ),
-                                ),
-                              ],
-                            )))
-                  ]),
+              child: buildNavItem(bar),
             ),
           ),
         );
       }).toList()),
     );
+  }
+
+  Widget buildNavItem(bar) {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Container(
+              width: MediaQuery.of(context).size.width / 4,
+              alignment: Alignment.topCenter,
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4,
+                    height: ScreenUtil().setWidth(38),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      pageIndex == bar.idx ? bar.curIcon : bar.icon,
+                      color: pageIndex == bar.idx
+                          ? ThemeUtil.themeData.primaryColor
+                          : Colors.black38,
+                      width: pageIndex == bar.idx
+                          ? ScreenUtil().setWidth(38)
+                          : ScreenUtil().setWidth(36),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  Container(
+                    color: Colors.transparent,
+                    width: MediaQuery.of(context).size.width / 4,
+                    margin: EdgeInsets.only(
+                        top: ScreenUtil().setWidth(4),
+                        bottom: ScreenUtil().setWidth(12)),
+                    alignment: Alignment.center,
+                    child: Text(
+                      bar.name,
+                      style: TextStyle(
+                          color: pageIndex == bar.idx
+                              ? ThemeUtil.themeData.primaryColor
+                              : Colors.black38,
+                          fontSize: ScreenUtil().setSp(24)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ]);
   }
 }
