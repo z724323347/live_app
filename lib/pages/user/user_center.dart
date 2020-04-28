@@ -106,6 +106,7 @@ class _UserCenterState extends State<UserCenter> {
             GestureDetector(
               onTap: () {
                 CommonFun().toast(message: 'info');
+                GlobalNavigator.pushNamed('/login');
               },
               child: Container(
                   width: ScreenUtil().setWidth(100),
