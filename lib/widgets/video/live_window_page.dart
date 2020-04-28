@@ -11,8 +11,8 @@ import 'package:liveapp/widgets/video/view/tencent_player_gesture_cover.dart';
 import 'package:liveapp/widgets/video/view/tencent_player_loading.dart';
 import 'package:screen/screen.dart';
 
-/// 窗口播放
-class VideoWindowPage extends StatefulWidget {
+/// 直播视频窗口播放
+class LiveVideoWindowPage extends StatefulWidget {
   PlayType playType;
   String dataSource;
 
@@ -21,13 +21,13 @@ class VideoWindowPage extends StatefulWidget {
   bool showClearBtn;
 
 
-  VideoWindowPage({this.showBottomWidget = true, this.showClearBtn = true, this.dataSource, this.playType = PlayType.network});
+  LiveVideoWindowPage({this.showBottomWidget = true, this.showClearBtn = true, this.dataSource, this.playType = PlayType.network});
 
   @override
-  _VideoWindowPageState createState() => _VideoWindowPageState();
+  _LiveVideoWindowPageState createState() => _LiveVideoWindowPageState();
 }
 
-class _VideoWindowPageState extends State<VideoWindowPage> {
+class _LiveVideoWindowPageState extends State<LiveVideoWindowPage> {
   TencentPlayerController controller;
   VoidCallback listener;
   DeviceOrientation deviceOrientation;
@@ -38,7 +38,7 @@ class _VideoWindowPageState extends State<VideoWindowPage> {
   Timer timer;
 
 
-  _WindowVideoPageState() {
+  _LiveVideoWindowPageState() {
     listener = () {
       if (!mounted) {
         return;
@@ -107,7 +107,7 @@ class _VideoWindowPageState extends State<VideoWindowPage> {
         },
         child:Container(
           color: Colors.black,
-          height: MediaQuery.of(context).size.width * 9 /16,
+          // height: MediaQuery.of(context).size.width * 9 /16,
           child: Stack(
             overflow: Overflow.visible,
             alignment: Alignment.center,
@@ -117,7 +117,7 @@ class _VideoWindowPageState extends State<VideoWindowPage> {
                   ? AspectRatio(
                 aspectRatio: controller.value.aspectRatio,
                 child: TencentPlayer(controller),
-              ) : Image.asset('static/place_nodata.png'),
+              ) : Image.asset('assets/images/video/place_nodata.png'),
               /// 支撑全屏
               Container(),
               /// 半透明浮层
@@ -144,7 +144,7 @@ class _VideoWindowPageState extends State<VideoWindowPage> {
                   },
                   child: Container(
                     padding: EdgeInsets.only(top: 34, left: 10),
-                    child: Image.asset('static/icon_back.png', width: 20, height: 20, fit: BoxFit.contain, color: Colors.white,
+                    child: Image.asset('assets/images/back.png', width: 20, height: 20, fit: BoxFit.contain, color: Colors.white,
                     ),
                   ),
                 ),
@@ -196,7 +196,6 @@ class _VideoWindowPageState extends State<VideoWindowPage> {
                   },
                   child: Container(
                     padding: EdgeInsets.all(10),
-                    // child: Image.asset('static/full_screen_on.png', width: 20, height: 20),
                     child: Icon(Icons.fullscreen, color:Colors.white,size:20),
                   ),
                 ),

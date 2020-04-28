@@ -321,7 +321,7 @@ class _TencentLinearProgressIndicatorState extends State<TencentLinearProgressIn
   ui.Image image;
 
   Future<VoidCallback> initImage() async {
-    image = await _loadImage('static/player_progress_img.png');
+    image = await _loadImage('assets/images/video/player_progress_img.png');
     return null;
   }
 

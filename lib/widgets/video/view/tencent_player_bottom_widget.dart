@@ -72,7 +72,7 @@ class _TencentPlayerBottomWidgetState extends State<TencentPlayerBottomWidget> {
                     child: Container(
                       height: _Style.bottomContainerH,
                       padding: EdgeInsets.all(15.0),
-                      child: Image.asset(controller.value.isPlaying ? 'static/player_pause.png' : 'static/player_play.png', width: _Style.iconPlayW, height: _Style.iconPlayW,),
+                      child: Image.asset(controller.value.isPlaying ? 'assets/images/video/player_pause.png' : 'assets/images/video/player_play.png', width: _Style.iconPlayW, height: _Style.iconPlayW,),
                     ),
                   ),
                   /// 进度条

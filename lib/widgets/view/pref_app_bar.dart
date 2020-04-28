@@ -17,35 +17,37 @@ class PrefAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor;
   final Size size;
   final ShapeBorder shape;
+  final Brightness brightness;
 
-  PrefAppBar(
-      {Key key,
-      this.leading,
-      this.title,
-      this.actions,
-      this.elevation,
-      this.titleSpacing,
-      this.centerTitle,
-      this.automaticallyImplyLeading,
-      this.backgroundColor,
-      this.size,
-      this.shape
-      });
+  PrefAppBar({
+    Key key,
+    this.leading,
+    this.title,
+    this.actions,
+    this.elevation = 0.0,
+    this.titleSpacing = 0.0,
+    this.centerTitle = true,
+    this.automaticallyImplyLeading = true,
+    this.backgroundColor,
+    this.size,
+    this.shape,
+    this.brightness = Brightness.dark,
+  });
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
       preferredSize: preferredSize,
       child: AppBar(
+        brightness: brightness,
         backgroundColor: backgroundColor ?? Theme.of(context).accentColor,
-        automaticallyImplyLeading: automaticallyImplyLeading ?? true,
-        elevation: elevation ?? 0.0,
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        elevation: elevation,
         leading: leading,
-        titleSpacing: titleSpacing??0.0,
-        centerTitle: centerTitle ?? false,
+        titleSpacing: titleSpacing,
+        centerTitle: centerTitle,
         title: title,
-        actions: actions ?? <Widget>[
-          Container(width:ScreenUtil().setWidth(80))
-        ],
+        actions:
+            actions ?? <Widget>[Container(width: ScreenUtil().setWidth(80))],
         shape: shape ?? null,
       ),
     );

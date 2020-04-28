@@ -1,48 +1,37 @@
 import 'dart:async';
-import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tencentplayer/flutter_tencentplayer.dart';
 import 'package:liveapp/widgets/video/play_type.dart';
 import 'package:liveapp/widgets/video/util/forbidshot_util.dart';
+import 'package:liveapp/widgets/video/video_full_page.dart';
 import 'package:liveapp/widgets/video/view/tencent_player_bottom_widget.dart';
 import 'package:liveapp/widgets/video/view/tencent_player_gesture_cover.dart';
 import 'package:liveapp/widgets/video/view/tencent_player_loading.dart';
 import 'package:screen/screen.dart';
 
-/// 全屏播放
-class VideoFullPage extends StatefulWidget {
+/// 视频窗口播放
+class VideoWindowPlay extends StatefulWidget {
   PlayType playType;
   String dataSource;
-  TencentPlayerController controller;
 
-  //UI
-  bool showBottomWidget;
-  bool showClearBtn;
-  // 自定义的窗口
-  Widget customWindows;
-
-  VideoFullPage(
-      {this.controller,
-      this.showBottomWidget = true,
-      this.showClearBtn = true,
-      this.customWindows,
-      this.dataSource,
-      this.playType = PlayType.network});
+  VideoWindowPlay({this.dataSource, this.playType = PlayType.network});
 
   @override
-  _VideoFullPagePageState createState() => _VideoFullPagePageState();
+  _VideoWindowPlayState createState() => _VideoWindowPlayState();
 }
 
-class _VideoFullPagePageState extends State<VideoFullPage> {
+class _VideoWindowPlayState extends State<VideoWindowPlay> {
   TencentPlayerController controller;
   VoidCallback listener;
+  DeviceOrientation deviceOrientation;
 
   bool isLock = false;
   bool showCover = false;
   Timer timer;
 
-  _FullVideoPageState() {
+  _VideoWindowPlayState() {
     listener = () {
       if (!mounted) {
         return;
@@ -54,12 +43,11 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+
+    /// 隐藏状态栏 ？
+    // SystemChrome.setEnabledSystemUIOverlays([]);
     _initController();
+    controller.initialize();
     controller.addListener(listener);
     hideCover();
     ForbidShotUtil.initForbid(context);
@@ -67,26 +55,17 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
   }
 
   @override
-  Future dispose() {
+  void dispose() {
     super.dispose();
     SystemChrome.setEnabledSystemUIOverlays(
         [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
     controller.removeListener(listener);
-    if (widget.controller == null) {
-      controller.dispose();
-    }
+    controller.dispose();
     ForbidShotUtil.disposeForbid();
     Screen.keepOn(false);
   }
 
   _initController() {
-    if (widget.controller != null) {
-      controller = widget.controller;
-      return;
-    }
     switch (widget.playType) {
       case PlayType.network:
         controller = TencentPlayerController.network(widget.dataSource);
@@ -103,7 +82,6 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                 auth: {"appId": 1252463788, "fileId": widget.dataSource}));
         break;
     }
-    controller.initialize();
   }
 
   @override
@@ -115,7 +93,7 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
           hideCover();
         },
         onDoubleTap: () {
-          if (!widget.showBottomWidget || isLock) return;
+          if (isLock) return;
           if (controller.value.isPlaying) {
             controller.pause();
           } else {
@@ -134,20 +112,20 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                       aspectRatio: controller.value.aspectRatio,
                       child: TencentPlayer(controller),
                     )
-                  : Image.asset('assets/images/video/video_nodata.png'),
+                  : Image.asset('assets/images/video/place_nodata.png'),
 
               /// 支撑全屏
               Container(),
 
               /// 半透明浮层
-              showCover ? Container(color: Color(0x00000000)) : SizedBox(),
+              showCover ? Container(color: Color(0x01000000)) : SizedBox(),
 
               /// 处理滑动手势
               Offstage(
                 offstage: isLock,
                 child: TencentPlayerGestureCover(
                   controller: controller,
-                  showBottomWidget: widget.showBottomWidget,
+                  showBottomWidget: false,
                   behavingCallBack: delayHideCover,
                 ),
               ),
@@ -169,11 +147,14 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                           Navigator.pop(context);
                         },
                         child: Container(
-                          padding: EdgeInsets.only(top: 30, left: 10),
-                          child: Icon(
-                            Icons.arrow_back,
+                          padding: EdgeInsets.only(top: 34, left: 10),
+                          child: Image.asset(
+                            'assets/images/back.png',
+                            width: 20,
+                            height: 20,
+                            fit: BoxFit.contain,
                             color: Colors.white,
-                            size: 20,),
+                          ),
                         ),
                       ),
                     )
@@ -190,21 +171,6 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                             isLock = !isLock;
                           });
                           delayHideCover();
-                          if (Platform.isAndroid) {
-                            DeviceOrientation deviceOrientation =
-                                controller.value.orientation < 180
-                                    ? DeviceOrientation.landscapeRight
-                                    : DeviceOrientation.landscapeLeft;
-                            if (isLock) {
-                              SystemChrome.setPreferredOrientations(
-                                  [deviceOrientation]);
-                            } else {
-                              SystemChrome.setPreferredOrientations([
-                                DeviceOrientation.landscapeLeft,
-                                DeviceOrientation.landscapeRight,
-                              ]);
-                            }
-                          }
                         },
                         child: Container(
                           color: Colors.transparent,
@@ -212,34 +178,24 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                             top: MediaQuery.of(context).padding.top,
                             right: 20,
                             bottom: 20,
-                            left: MediaQuery.of(context).padding.top,
+                            left: 10,
                           ),
-                          child: isLock ?
-                              Icon(Icons.lock ,color: Colors.white ,size: 24,) 
-                              : Icon(Icons.lock_open,color: Colors.white ,size: 24),
+                          child: isLock
+                              ? Icon(
+                                  Icons.lock,
+                                  color: Colors.white,
+                                  size: 24,
+                                )
+                              : Icon(Icons.lock_open,
+                                  color: Colors.white, size: 24),
                         ),
                       ),
                     )
                   : SizedBox(),
-              showCover && widget.customWindows != null
-                  ? Positioned(
-                      top: 0,
-                      bottom: 0,
-                      right: 0,
-                      child: GestureDetector(
-                        onTap: (){
-                          return false;
-                        },
-                        child: Container(
-                          child: widget.customWindows,
-                        ),
-                      ),
-                    )
-                  : Container(),
 
               /// 进度、清晰度、速度
               Offstage(
-                offstage: !widget.showBottomWidget,
+                offstage: !false,
                 child: Padding(
                   padding: EdgeInsets.only(
                       left: MediaQuery.of(context).padding.top,
@@ -247,12 +203,12 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
                   child: TencentPlayerBottomWidget(
                     isShow: !isLock && showCover,
                     controller: controller,
-                    showClearBtn: widget.showClearBtn,
+                    showClearBtn: false,
                     behavingCallBack: () {
                       delayHideCover();
                     },
                     changeClear: (int index) {
-                      changeClear(index);
+                      // changeClear(index);
                     },
                   ),
                 ),
@@ -262,24 +218,6 @@ class _VideoFullPagePageState extends State<VideoFullPage> {
         ),
       ),
     );
-  }
-
-  List<String> clearUrlList = [
-    'http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f10.mp4',
-    'http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f20.mp4',
-    'http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f30.mp4',
-  ];
-
-  changeClear(int urlIndex, {int startTime}) {
-    controller?.removeListener(listener);
-    controller?.pause();
-    controller = TencentPlayerController.network(clearUrlList[urlIndex],
-        playerConfig: PlayerConfig(
-            startTime: startTime ?? controller.value.position.inSeconds));
-    controller?.initialize().then((_) {
-      if (mounted) setState(() {});
-    });
-    controller?.addListener(listener);
   }
 
   hideCover() {

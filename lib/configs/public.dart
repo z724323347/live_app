@@ -21,6 +21,7 @@ export 'package:liveapp/utils/http/page_http_request.dart';
 export 'package:liveapp/utils/http/aes.dart';
 export 'package:liveapp/utils/http/error.dart';
 export 'package:liveapp/utils/http/socket_data.dart';
+export 'package:liveapp/utils/http/http_mock.dart';
 
 /// utils
 export 'package:liveapp/utils/log.dart';

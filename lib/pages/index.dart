@@ -30,16 +30,21 @@ class _IndexState extends State<Index> {
       },
       child: Scaffold(
         /// 主要内容
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          color: Colors.white,
-          child: PageView(
-            children: ConstConfig().mianPageList,
-            controller: _pageController,
-            physics: NeverScrollableScrollPhysics(),
-          ),
+        // body: Container(
+        //   height: MediaQuery.of(context).size.height,
+        //   color: Colors.white,
+        //   child: PageView(
+        //     children: ConstConfig().mianPageList,
+        //     controller: _pageController,
+        //     physics: NeverScrollableScrollPhysics(),
+        //   ),
+        // ),
+        body: IndexedStack(
+          children: ConstConfig().mianPageList,
+          index: pageIndex,
         ),
         bottomNavigationBar: buildNavBar(),
+        floatingActionButton: buildTest(),
       ),
     );
   }
@@ -73,8 +78,8 @@ class _IndexState extends State<Index> {
             child: ButtonEffect(
               onTap: () {
                 setState(() {
-                  _pageController.jumpToPage(bar.idx);
                   pageIndex = bar.idx;
+                  // _pageController.jumpToPage(bar.idx);
                 });
               },
               child: buildNavItem(bar),
@@ -134,5 +139,27 @@ class _IndexState extends State<Index> {
             ),
           ),
         ]);
+  }
+
+  /// 测试入口
+  Widget buildTest() {
+    return GestureDetector(
+      onTap: () {
+        GlobalNavigator.pushNamed('/testPage');
+      },
+      child: Container(
+        width: ScreenUtil().setWidth(80),
+        height: ScreenUtil().setWidth(80),
+        decoration: BoxDecoration(
+            color: Theme.of(context).accentColor,
+            borderRadius:
+                BorderRadius.all(Radius.circular(ScreenUtil().setWidth(40)))),
+        alignment: Alignment.center,
+        child: Text(
+          'Demo',
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 }

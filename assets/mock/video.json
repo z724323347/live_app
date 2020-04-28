@@ -1,0 +1,77 @@
+{
+    "state": "200",
+    "message": "success",
+    "data": [
+        {
+            "id": 1,
+            "image": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2694403919,2236548544&fm=26&gp=0.jpg",
+            "room": "CCTV-5",
+            "time": "2020-04-25 19:20:05",
+            "des": "体育卫视",
+            "m3u8": "http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f10.mp4"
+        },
+        {
+            "id": 2,
+            "image": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4219519699,1970864745&fm=26&gp=0.jpg",
+            "room": "PUBG",
+            "time": "2020-04-25 19:20:05",
+            "des": "赛事",
+            "m3u8": "http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4.flv"
+        },
+        {
+            "id": 3,
+            "image": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1150103459,2743329329&fm=26&gp=0.jpg",
+            "room": "芒果TV",
+            "time": "2020-04-25 19:20:05",
+            "des": "湖南卫视",
+            "m3u8": "rtmp://58.200.131.2:1935/livetv/hunantv"
+        },
+        {
+            "id": 4,
+            "image": "http://img.mp.itc.cn/upload/20160922/3324cd1318aa4af489fd6fae9ba4c160_th.jpg",
+            "room": "4- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "des": "描述",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        },
+        {
+            "id": 5,
+            "image": "http://img.mp.itc.cn/upload/20160922/3324cd1318aa4af489fd6fae9ba4c160_th.jpg",
+            "room": "5- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "des": "描述",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        },
+        {
+            "id": 6,
+            "image": "http://img.mp.itc.cn/upload/20160922/3324cd1318aa4af489fd6fae9ba4c160_th.jpg",
+            "room": "6号- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "des": "描述",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        },
+        {
+            "id": 7,
+            "image": "http://img.mp.itc.cn/upload/20160922/3324cd1318aa4af489fd6fae9ba4c160_th.jpg",
+            "room": "重复- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        },
+        {
+            "id": 8,
+            "image": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=717781734,2245795864&fm=26&gp=0.jpg",
+            "room": "重复- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "des": "描述",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        },
+        {
+            "id": 9,
+            "image": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=717781734,2245795864&fm=26&gp=0.jpg",
+            "room": "重复- 直播间",
+            "time": "2020-04-25 19:20:05",
+            "des": "描述",
+            "m3u8": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"
+        }
+    ]
+}
