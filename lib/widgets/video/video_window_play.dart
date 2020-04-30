@@ -121,14 +121,14 @@ class _VideoWindowPlayState extends State<VideoWindowPlay> {
               showCover ? Container(color: Color(0x01000000)) : SizedBox(),
 
               /// 处理滑动手势
-              Offstage(
-                offstage: isLock,
-                child: TencentPlayerGestureCover(
-                  controller: controller,
-                  showBottomWidget: false,
-                  behavingCallBack: delayHideCover,
-                ),
-              ),
+              // Offstage(
+              //   offstage: isLock,
+              //   child: TencentPlayerGestureCover(
+              //     controller: controller,
+              //     showBottomWidget: false,
+              //     behavingCallBack: delayHideCover,
+              //   ),
+              // ),
 
               /// 加载loading
               TencentPlayerLoading(
@@ -137,28 +137,28 @@ class _VideoWindowPlayState extends State<VideoWindowPlay> {
               ),
 
               /// 头部浮层
-              !isLock && showCover
-                  ? Positioned(
-                      top: 0,
-                      left: MediaQuery.of(context).padding.top,
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(top: 34, left: 10),
-                          child: Image.asset(
-                            'assets/images/back.png',
-                            width: 20,
-                            height: 20,
-                            fit: BoxFit.contain,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    )
-                  : SizedBox(),
+              // !isLock && showCover
+              //     ? Positioned(
+              //         top: 0,
+              //         left: MediaQuery.of(context).padding.top,
+              //         child: GestureDetector(
+              //           behavior: HitTestBehavior.opaque,
+              //           onTap: () {
+              //             Navigator.pop(context);
+              //           },
+              //           child: Container(
+              //             padding: EdgeInsets.only(top: 34, left: 10),
+              //             child: Image.asset(
+              //               'assets/images/back.png',
+              //               width: 20,
+              //               height: 20,
+              //               fit: BoxFit.contain,
+              //               color: Colors.white,
+              //             ),
+              //           ),
+              //         ),
+              //       )
+              //     : SizedBox(),
 
               /// 锁
               showCover

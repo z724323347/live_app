@@ -46,6 +46,7 @@ class _IndexVideoPageState extends State<IndexVideoPage> {
                           builder: (_) => VideoPage(
                             title: v['room'],
                             playUrl: v['m3u8'],
+                            videoList: videoList,
                           ),
                         ),
                       );
