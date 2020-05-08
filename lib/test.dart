@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liveapp/pages/index.dart';
 import 'package:liveapp/widgets/video/live_window_page.dart';
 import 'package:liveapp/widgets/video/play_type.dart';
 import 'package:liveapp/widgets/video/video_window_play.dart';
@@ -28,6 +29,12 @@ class _TestPageState extends State<TestPage> {
       ),
       body: Column(
         children: <Widget>[
+          
+          OutlineButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_) => Index()));
+          },
+          child: Text('index'),),
+
           Expanded(
             child: VideoWindowPlay(
               playType: PlayType.network,

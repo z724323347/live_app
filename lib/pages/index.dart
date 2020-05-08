@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liveapp/configs/config.dart';
 import 'package:liveapp/configs/public.dart';
@@ -133,7 +134,12 @@ class _IndexState extends State<Index> {
   Widget buildTest() {
     return GestureDetector(
       onTap: () {
-        GlobalNavigator.pushNamed('/testPage');
+        // GlobalNavigator.pushNamed('/testPage');
+        // FlutterBoost.singleton.open(
+        //   'testPage',
+        //   urlParams: <dynamic, dynamic>{'present': true},
+        // );
+         Navigator.push(context, MaterialPageRoute(builder: (_) => TestPage()));
       },
       child: Container(
         width: ScreenUtil().setWidth(80),

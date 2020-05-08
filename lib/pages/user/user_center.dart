@@ -28,6 +28,7 @@ class _UserCenterState extends State<UserCenter> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750,height: 1334)..init(context);
     return Scaffold(
       body: NestedScrollView(
         controller: controller,

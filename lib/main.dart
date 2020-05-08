@@ -6,10 +6,14 @@ import 'package:liveapp/configs/public.dart';
 import 'package:liveapp/generated/l10n.dart';
 import 'package:liveapp/pages/index.dart';
 import 'package:liveapp/pages/splash.dart';
+import 'package:liveapp/pages/user/user_center.dart';
 import 'package:liveapp/store/public/locale_store.dart';
 import 'package:liveapp/utils/locale/cupertino_localizations_delegate.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -29,9 +33,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       ///可以在native层通过 getContainerParams 来传递参数
       'flutterPage': (String pageName, Map<dynamic, dynamic> params, String _) {
         print('flutterPage params:$params');
-
         return Index();
       },
+      'testPage': (String pageName, Map<dynamic, dynamic> params, String _) {
+        print('flutterPage params:$params');
+        return TestPage();
+      },
+      'flutterFragment': (String pageName, Map<dynamic, dynamic> params, String _) =>
+          UserCenter(),
     });
     FlutterBoost.singleton
         .addBoostNavigatorObserver(TestBoostNavigatorObserver());
@@ -42,7 +51,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return Observer(
         builder: (_) => MaterialApp(
               title: 'app',
-              navigatorKey:key,
+              navigatorKey: key,
               // theme: ThemeData(platform: TargetPlatform.iOS),
               localizationsDelegates: [
                 S.delegate,
@@ -55,7 +64,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 print('deviceLocale: $deviceLocale');
                 return deviceLocale;
               },
-              home: Container(color: Colors.white,),
+              home: Container(
+                color: Colors.white,
+              ),
               builder: FlutterBoost.init(postPush: _onRoutePushed),
               routes: Routes.routes,
               onGenerateRoute: Routes.onGenerateRoute,
