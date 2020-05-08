@@ -17,35 +17,24 @@ class _IndexState extends State<Index> {
   int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   appBar: PrefAppBar(title: Text('Index')),
-    //   body: Container(),
-    // );
-    return WillPopScope(
-      onWillPop: () {
-        /// android 退出APP操作
-        return CommonFun().popConfirm('确认退出 ?', () {
-          SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-        }, [Language.of().cancel, Language.of().confirm]);
-      },
-      child: Scaffold(
-        /// 主要内容
-        // body: Container(
-        //   height: MediaQuery.of(context).size.height,
-        //   color: Colors.white,
-        //   child: PageView(
-        //     children: ConstConfig().mianPageList,
-        //     controller: _pageController,
-        //     physics: NeverScrollableScrollPhysics(),
-        //   ),
-        // ),
-        body: IndexedStack(
-          children: ConstConfig().mianPageList,
-          index: pageIndex,
-        ),
-        bottomNavigationBar: buildNavBar(),
-        floatingActionButton: buildTest(),
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
+    // WillPopScope(
+    //   onWillPop: () {
+    //     /// android 退出APP操作
+    //     return CommonFun().popConfirm('确认退出 ?', () {
+    //       SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+    //     }, [Language.of().cancel, Language.of().confirm]);
+    //   },
+
+    return Scaffold(
+      /// 主要内容
+      body: IndexedStack(
+        children: ConstConfig().mianPageList,
+        index: pageIndex,
       ),
+      bottomNavigationBar: buildNavBar(),
+      floatingActionButton: buildTest(),
     );
   }
 
@@ -109,9 +98,8 @@ class _IndexState extends State<Index> {
                     alignment: Alignment.center,
                     child: Image.asset(
                       pageIndex == bar.idx ? bar.curIcon : bar.icon,
-                      color: pageIndex == bar.idx
-                          ? ThemeUtil.themeData.primaryColor
-                          : Colors.black38,
+                      color:
+                          pageIndex == bar.idx ? Colors.blue : Colors.black38,
                       width: pageIndex == bar.idx
                           ? ScreenUtil().setWidth(38)
                           : ScreenUtil().setWidth(36),
@@ -129,7 +117,7 @@ class _IndexState extends State<Index> {
                       bar.name,
                       style: TextStyle(
                           color: pageIndex == bar.idx
-                              ? ThemeUtil.themeData.primaryColor
+                              ? Colors.blue
                               : Colors.black38,
                           fontSize: ScreenUtil().setSp(24)),
                     ),
