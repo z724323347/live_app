@@ -1,3 +1,4 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liveapp/pages/index.dart';
@@ -31,7 +32,8 @@ class _TestPageState extends State<TestPage> {
         children: <Widget>[
           
           OutlineButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_) => Index()));
+            // Navigator.push(context, MaterialPageRoute(builder: (_) => Index()));
+            DevUtils().toast('message');
           },
           child: Text('index'),),
 

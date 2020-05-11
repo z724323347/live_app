@@ -1,5 +1,5 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
-import 'package:liveapp/configs/public.dart';
 
 /// diaolg  弹出窗
 class PopDialog {

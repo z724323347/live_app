@@ -1,7 +1,6 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
-import 'package:liveapp/configs/public.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveapp/utils/global/global_navigator.dart';
 
 /// 启动页
 class Splash extends StatefulWidget {

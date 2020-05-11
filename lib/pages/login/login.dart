@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -317,13 +318,13 @@ class _LoginState extends State<Login> {
         FocusScope.of(context).requestFocus(FocusNode());
         try {
           // await loginStore.login();
-          CommonFun().toast(message: 'Login 成功');
+          DevUtils().toast('Login 成功');
           GlobalNavigator.pushNamedAndRemoveUntil(
             '/index',
             (route) => route == null,
           );
         } catch (err) {
-          CommonFun().toast(message: err.toString());
+          DevUtils().toast(err.toString());
           _btnController.error();
           Timer(Duration(seconds: 2), () {
             _btnController.reset();

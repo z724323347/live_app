@@ -1,3 +1,4 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liveapp/configs/public.dart';
@@ -28,7 +29,7 @@ class _UserCenterState extends State<UserCenter> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750,height: 1334)..init(context);
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
       body: NestedScrollView(
         controller: controller,
@@ -106,7 +107,7 @@ class _UserCenterState extends State<UserCenter> {
             ),
             GestureDetector(
               onTap: () {
-                CommonFun().toast(message: 'info');
+                DevUtils().toast('info');
                 GlobalNavigator.pushNamed('/login');
               },
               child: Container(
@@ -146,7 +147,7 @@ class _UserCenterState extends State<UserCenter> {
           return Expanded(
             child: GestureDetector(
               onTap: () {
-                CommonFun().toast(message: '${m['text']}');
+                DevUtils().toast('${m['text']}');
               },
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -180,7 +181,7 @@ class _UserCenterState extends State<UserCenter> {
               )),
           child: GestureDetector(
             onTap: () {
-              CommonFun().toast(message: '${l['text']}');
+              DevUtils().toast('${l['text']}');
             },
             child: Container(
               width: MediaQuery.of(context).size.width,

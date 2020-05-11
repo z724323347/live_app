@@ -1,3 +1,4 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liveapp/configs/public.dart';
@@ -38,7 +39,7 @@ class _IndexLivePageState extends State<IndexLivePage> {
               children: liveList.map((l) {
                 return GestureDetector(
                   onTap: () {
-                    CommonFun().toast(message: l['room']);
+                    DevUtils().toast(l['room']);
                     Navigator.push(
                       context,
                       MaterialPageRoute(

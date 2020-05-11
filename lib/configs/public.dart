@@ -27,8 +27,6 @@ export 'package:liveapp/utils/http/http_mock.dart';
 export 'package:liveapp/utils/log.dart';
 export 'package:liveapp/utils/time/data_util.dart';
 export 'package:liveapp/utils/time/time_util.dart';
-export 'package:liveapp/utils/global/global_navigator.dart';
-export 'package:liveapp/utils/common_fun.dart';
 
 /// 缓存
 export 'package:liveapp/constants/storage_key.dart';

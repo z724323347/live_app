@@ -39,7 +39,7 @@ class _IndexVideoPageState extends State<IndexVideoPage> {
                 children: videoList.map((v) {
                   return GestureDetector(
                     onTap: () {
-                      CommonFun().toast(message: '${v['m3u8']}');
+                      // CommonFun().toast(message: '${v['m3u8']}');
                       Navigator.push(
                         context,
                         MaterialPageRoute(

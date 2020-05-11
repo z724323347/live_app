@@ -1,3 +1,4 @@
+import 'package:dev_util/dev_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -5,10 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:liveapp/configs/public.dart';
 import 'package:liveapp/generated/l10n.dart';
 import 'package:liveapp/pages/index.dart';
-import 'package:liveapp/pages/splash.dart';
 import 'package:liveapp/pages/user/user_center.dart';
-import 'package:liveapp/store/public/locale_store.dart';
-import 'package:liveapp/utils/locale/cupertino_localizations_delegate.dart';
 
 // void main() => runApp(MyApp());
 void main() {
